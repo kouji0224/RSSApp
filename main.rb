@@ -1,5 +1,11 @@
-require 'sinatra'
+require "bundler/setup"
+Bundler.require
+
 require 'rss'
+
+if development?
+    require 'sinatra/reloader'
+end
 
 get '/' do
     @hatena = RSS::Parser.parse("http://b.hatena.ne.jp/hotentry.rss")
