@@ -2,11 +2,13 @@
                        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
                        crossorigin="anonymous">
 
+<link rel="stylesheet" href="style.css" />
+
 <% @array.each do | site | %>
 <h2><%= site.channel.title %></h2>
 <ul class="list-group">
 <% site.items.first(10).each do |entry| %>
-    <li class="list-group-item"><a href="<%= entry.link %>" target= "_blank” rel= "noopener"><%= entry.title[0..50] %>...</a> | <%= entry.date %></li>
+    <li class="list-group-item"><a class ="list-group-item-warning" href="<%= entry.link %>" target= "_blank” rel= "noopener"><%= entry.title[0..50] %>...</a> | <%= entry.date %></li>
 <% end %>
 <% end %>
 
